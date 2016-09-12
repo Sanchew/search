@@ -140,6 +140,6 @@ http.createServer(function(req,resq){
 	//res.write(" access success search book is "+bookname)
 	//res.end()
 
-}).listen(80)
+}).listen(process.env.PORT || 3000)
 
 console.log(" server reading ")
