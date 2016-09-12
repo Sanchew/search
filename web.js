@@ -14,7 +14,7 @@ http.createServer(function(req,resq){
 		resq.end(body)
 	})
 	console.log("what?")
-	# resq.end("i love guojianli");
+	// resq.end("i love guojianli");
 
 }).listen(process.env.PORT || 3000)
 
