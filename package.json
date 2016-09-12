@@ -1,0 +1,19 @@
+{
+  "name": "searchbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "searchbook.js",
+  "dependencies": {
+    "co-request": "^1.0.0",
+    "cheerio": "^0.20.0",
+    "iconv-lite": "^0.4.13",
+    "request": "^2.73.0",
+    "request-promise": "^4.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+}
