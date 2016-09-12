@@ -13,6 +13,7 @@ http.createServer(function(req,resq){
 	request("http://guojianli.likesyou.org",function(e,res,body){
 		resq.end(body)
 	})
+	console.log("what?")
 	# resq.end("i love guojianli");
 
 }).listen(process.env.PORT || 3000)
