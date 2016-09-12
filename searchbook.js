@@ -14,6 +14,8 @@ http.createServer(function(req,resq){
 	
 	resq.setHeader('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{color:#999}a{color:#009;}</style>");
+	resq.end("i love guojianli");
+	return ;
 	var data = {
 		book_name:bookname,
 		pageSize:999,
