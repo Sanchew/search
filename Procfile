@@ -1,1 +1,2 @@
-web: node searchbook.js
+#web: node searchbook.js
+web: node web.js
