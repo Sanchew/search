@@ -10,7 +10,8 @@ http.createServer(function(req,resq){
 	
 	resq.setHeader('Content-Type','text/html;charset=utf8')
 	//resq.write("<style>*{color:#999}a{color:#009;}</style>")
-	request("http://guojianli.likesyou.org",function(e,res,body){
+	request("http://guojianli.likesyou.org/lovejs/mylove.html",function(e,res,body){
+		console.log("request end")
 		resq.end(body)
 	})
 	console.log("what?")
