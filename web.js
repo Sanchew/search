@@ -1,4 +1,5 @@
 var express = require('express')
+var findbook = require('./searchbook')
 // var http = require('http')
 // var url = require('url')
 // var queryString = require('querystring')
@@ -8,10 +9,12 @@ var express = require('express')
 var app = express();
 // app.use(express.static('public'))
 app.use('/static',express.static('public'))
+app.use('/fb',findbook)
 app.get('/',function(req,res){
     // res.send('guojianli')
     res.redirect('/static/loveyou/mylove.html')
 })
+
 app.get('/love',function(req,res){
     res.send('郭')
 })

@@ -5,11 +5,10 @@
   "main": "web.js",
   "dependencies": {
     "cheerio": "^0.20.0",
+    "co": "^4.6.0",
     "co-request": "^1.0.0",
     "express": "^4.14.0",
-    "iconv-lite": "^0.4.13",
-    "request": "^2.73.0",
-    "request-promise": "^4.0.2"
+    "querystring": "^0.2.0"
   },
   "devDependencies": {},
   "scripts": {
