@@ -17,8 +17,6 @@ var app = express();
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use(function(req,res,next){
     var referer = req.headers.referer
-    referer = 'http://lovesyou.ml/fb?n=%E9%AC%BC%E5%90%B9%E7%81%AF'
-    referer = 'http://lovesyou.ml/fb?n=鬼吹灯'
     var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
     if (path.length > 0) {
 	req.url = path
