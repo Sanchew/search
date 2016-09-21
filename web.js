@@ -1,5 +1,6 @@
 var express = require('express')
 var favicon = require('serve-favicon')
+var queryString = require('querystring')
 var findbook = require('./searchbook')
 
 // var http = require('http')
@@ -16,11 +17,17 @@ var app = express();
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use(function(req,res,next){
     var referer = req.headers.referer
-    console.info(`===#${req.url}# #${referer}%`)
+    referer = 'http://lovesyou.ml/fb?n=%E9%AC%BC%E5%90%B9%E7%81%AF'
+    referer = 'http://lovesyou.ml/fb?n=鬼吹灯'
     var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
-    console.info(`path ${path} ${path.length>0}`)
-    if (path.lenght>0) req.url = path
-    console.info(`new url ${req.url}`)
+    if (path.length > 0) {
+	req.url = path
+	var query = path.split('?')
+	if (query.length > 1) {
+	    req.query = queryString.parse(query[1])
+	}
+    }
+console.info(req.url)
     next()
 })
 app.use('/static',express.static('public'))
