@@ -3,17 +3,11 @@ var favicon = require('serve-favicon')
 var queryString = require('querystring')
 var findbook = require('./searchbook')
 var mapping = require('./mapping')
-// var http = require('http')
-// var url = require('url')
-// var queryString = require('querystring')
-// var request = require('request')
-// var cheerio = require("cheerio")
-// var promise = require('request-promise')
+
 var app = express();
-// app.use(express.static('public'))
-// app.set('views',__dirname)
-// app.engine('html',require('ejs').renderFile)
-// app.set('view engine','html')
+app.set('views',__dirname)
+app.engine('html',require('ejs').renderFile)
+app.set('view engine','html')
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use('/',mapping)
 app.use('/static',express.static('public'))
@@ -22,8 +16,7 @@ app.get('/',function(req,res){
     res.send('等待是一场与时光的较量')  
 })
 app.get('/guojianli',function(req,res){
-    res.redirect('/static/loveyou/mylove.html')
-    // res.sendFile('/public/loveyou/mylove.html')
+    res.redirect('/public/loveyou/mylove.html')
 })
 var server = app.listen(process.env.PORT || 3000,function(){
     var host = server.address().address,
