@@ -17,10 +17,8 @@ app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use(function(req,res,next){
     var referer = req.headers.referer
     console.info(`===#${req.url}# #${referer}%`)
-    if (referer) {
-	var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
-	if (path.lenght>0) req.url = path
-    }
+    var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
+    if (path.lenght>0) req.url = path
     console.info(`new url ${req.url}`)
     next()
 })
