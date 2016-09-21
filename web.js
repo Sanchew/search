@@ -13,6 +13,7 @@ var app = express();
 // app.set('view engine','html')
 app.use(function(req,res,next){
     console.info(`ref = ${req.referer}`)
+    console.info(`===#${req.url}# #${req.referer}%`)
     if (req.referer) {
 	console.info(`#${req.url}# #${req.referer}%`)
 	//req.url = req.referer
@@ -22,7 +23,6 @@ app.use(function(req,res,next){
 app.use('/static',express.static('public'))
 app.use('/fb',findbook)
 app.get('/',function(req,res){
-    console.info(req.url)
     res.send('等待是一场与时光的较量')  
 })
 app.get('/love',function(req,res){
