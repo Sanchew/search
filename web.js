@@ -16,11 +16,10 @@ var app = express();
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use(function(req,res,next){
     var referer = req.headers.referer
-    console.info(`ref = ${referer}`)
     console.info(`===#${req.url}# #${referer}%`)
-    if (req.referer) {
-	console.info(`#${req.url}# #${req.referer}%`)
-	//req.url = req.referer
+    if (referer) {
+	var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
+	if (path.lenght>0) req.url = path
     }
     next()
 })
