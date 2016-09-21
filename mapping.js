@@ -2,11 +2,12 @@ var express = require('express')
 var router = express.Router()
 
 router.use('/', function(req,res,next){
-    if(req.url != '/'){
+    if(req.url == '/'){
         var referer = req.headers.referer
         var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
         if (path.length > 0) {
             req.url = path
+	    console.info(`redirect ${path}`)
 	    res.redirect(path)
 	    return
             var query = path.split('?')
