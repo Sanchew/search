@@ -16,7 +16,7 @@ app.get('/',function(req,res){
     res.send('等待是一场与时光的较量')  
 })
 app.get('/guojianli',function(req,res){
-    res.redirect('/public/loveyou/mylove.html')
+    res.redirect('/static/loveyou/mylove.html')
 })
 var server = app.listen(process.env.PORT || 3000,function(){
     var host = server.address().address,
