@@ -15,8 +15,9 @@ var app = express();
 // app.set('view engine','html')
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use(function(req,res,next){
-    console.info(`ref = ${req.referer}`)
-    console.info(`===#${req.url}# #${req.referer}%`)
+    var referer = req.headers.referer
+    console.info(`ref = ${referer}`)
+    console.info(`===#${req.url}# #${referer}%`)
     if (req.referer) {
 	console.info(`#${req.url}# #${req.referer}%`)
 	//req.url = req.referer
