@@ -1,5 +1,7 @@
 var express = require('express')
+var favicon = require('serve-favicon')
 var findbook = require('./searchbook')
+
 // var http = require('http')
 // var url = require('url')
 // var queryString = require('querystring')
@@ -11,6 +13,7 @@ var app = express();
 // app.set('views',__dirname)
 // app.engine('html',require('ejs').renderFile)
 // app.set('view engine','html')
+app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use(function(req,res,next){
     console.info(`ref = ${req.referer}`)
     console.info(`===#${req.url}# #${req.referer}%`)
