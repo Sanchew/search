@@ -5,7 +5,7 @@ router.use('/', function(req,res,next){
     if(req.url == '/'){
         var referer = req.headers.referer
         var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
-        if (path.length > 0) {
+        if (path.length > 0 && path != '/') {
             req.url = path
 	    console.info(`redirect ${path}`)
 	    res.redirect(path)
