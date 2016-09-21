@@ -6,7 +6,7 @@ var mapping = require('./mapping')
 
 var app = express();
 app.set('views',__dirname)
-app.engine('html',require('ejs').renderFile)
+app.engine('html',require('hogan-express'))
 app.set('view engine','html')
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use('/',mapping)
