@@ -21,6 +21,7 @@ app.use(function(req,res,next){
 	var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
 	if (path.lenght>0) req.url = path
     }
+    console.info(`new url ${req.url}`)
     next()
 })
 app.use('/static',express.static('public'))
