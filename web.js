@@ -14,7 +14,7 @@ var app = express();
 app.use(function(req,res,next){
     console.info(`ref = ${req.referer}`)
     if (req.referer) {
-	console.info(`${req.url} ${req.referer}`)
+	console.info(`#${req.url}# #${req.referer}%`)
 	//req.url = req.referer
     }
     next()
