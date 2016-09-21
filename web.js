@@ -18,6 +18,7 @@ app.use(function(req,res,next){
     var referer = req.headers.referer
     console.info(`===#${req.url}# #${referer}%`)
     var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
+    console.info(`path ${path} ${path.length>0}`)
     if (path.lenght>0) req.url = path
     console.info(`new url ${req.url}`)
     next()
