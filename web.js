@@ -16,6 +16,7 @@ var app = express();
 // app.set('view engine','html')
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.use('/', function(req,res,next){
+  if(req.url == '/'){
     var referer = req.headers.referer
     var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
     if (path.length > 0) {
@@ -25,7 +26,7 @@ app.use('/', function(req,res,next){
 	    req.query = queryString.parse(query[1])
 	}
     }
-console.info(req.url)
+  }
     next()
 })
 app.use('/static',express.static('public'))
