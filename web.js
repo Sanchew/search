@@ -5,7 +5,7 @@ var findbook = require('./searchbook')
 var mapping = require('./mapping')
 
 var app = express();
-app.set('views',__dirname)
+app.set('views',__dirname + '/views')
 app.engine('html',require('hogan-express'))
 app.set('view engine','html')
 app.use(favicon(__dirname + '/public/favicon.ico'))
