@@ -13,7 +13,8 @@ app.use('/',mapping)
 app.use('/static',express.static('public'))
 app.use('/fb',findbook)
 app.get('/',function(req,res){
-    res.send('等待是一场与时光的较量')  
+    // res.send('等待是一场与时光的较量')  
+    res.render('index.html')
 })
 app.get('/guojianli',function(req,res){
     res.redirect('/static/loveyou/mylove.html')
