@@ -23,14 +23,14 @@ router.get('/',function(req,resq){
 		for (var i=0;i<imgs.length;i++) {
 			var id = imgs.eq(i).attr("name")
 			var detail = yield corequest(murl(`https://www.google.com/ajax/pi/imgdisc?imgdii=${id}`))
-			console.info(detail.body)
-			var json = JSON.parse(detail.body.substring(2,detail.body.length-4))
+			var dbody=detail.body.substring(2,detail.body.length-2)
+			// console.info(dbody)
+			var json = JSON.parse(dbody)
 			var rels = json.rel
 			for (var di=0;di<rels.length;di++){
 				var rel = rels[di]
-				resq.write(`<a href="${di.ru}"><img src="${di.ou}"></a>`)
+				resq.write(`<a target="_blank" href="${rel.ru}"><img src="${rel.ou}"></a>`)
 			}
-			break
 		}
 		resq.end()
 	})
