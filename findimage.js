@@ -20,23 +20,11 @@ router.get('/',function(req,resq){
 		var body = yield corequest(murl(url))
 		var dom = JSON.parse(body.body)[1][1]
 		var $=cheerio.load(dom)//,{decodeEntities:false})
-		console.info(dom)
+		// console.info(dom)
 		var jsons = $('.rg_meta')
-		for (var i=0;i<imgs.length;i++) {
+		for (var i=0;i<jsons.length;i++) {
 			var json = JSON.parse(jsons.eq(i).html())
 			resq.write(`<img src="${json.ou}">`)
-			// console.info($e.attr('href'))
-			return
-			// var id = imgs.eq(i).attr("name")
-			// var detail = yield corequest(murl(`https://www.google.com/ajax/pi/imgdisc?imgdii=${id}`))
-			// var dbody=detail.body.substring(2,detail.body.length-2)
-			// // console.info(dbody)
-			// var json = JSON.parse(dbody)
-			// var rels = json.rel
-			// // for (var di=0;di<rels.length;di++){
-			// 	var rel = rels[0]
-			// 	resq.write(`<a rel="noopener noreferrer" target="_blank" href="${rel.ru}"><img rel="noopener noreferrer" src="${rel.ou}"></a>`)
-			// // }
 		}
 		resq.end()
 	})
