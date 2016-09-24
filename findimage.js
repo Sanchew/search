@@ -20,7 +20,7 @@ router.get('/',function(req,resq){
 		var body = yield corequest(murl(url))
 		// console.info(body)
 		var dom = JSON.parse(body.body)[1][1]
-		var $=cheerio.load(dom)//,{decodeEntities:false})
+		var $=cheerio.load(dom,{decodeEntities:false})
 		// console.info(dom)
 		var jsons = $('.rg_meta')
 		for (var i=0;i<jsons.length;i++) {
