@@ -4,6 +4,7 @@ var queryString = require('querystring')
 var findbook = require('./searchbook')
 var mapping = require('./mapping')
 var findimage = require('./findimage')
+var fetchimage = require('./fetchimage')
 
 var app = express();
 app.set('views',__dirname + '/views')
@@ -14,6 +15,7 @@ app.use('/',mapping)
 app.use('/static',express.static('public'))
 app.use('/fb',findbook)
 app.use('/fi',findimage)
+app.use('/fi/g',fetchimage)
 app.get('/',function(req,res){
     // res.send('等待是一场与时光的较量')  
     res.render('index.html')
