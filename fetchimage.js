@@ -5,7 +5,6 @@ var corequest = require('co-request')
 var express = require('express')
 var router = express.Router()
 var murl = require('./requestsupport')
-var fs = require('fs')
 
 router.get('/',function(req,resq){
 	
