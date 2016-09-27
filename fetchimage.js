@@ -5,17 +5,15 @@ var corequest = require('co-request')
 var express = require('express')
 var router = express.Router()
 var murl = require('./requestsupport')
+var fs = require('fs')
 
 router.get('/',function(req,resq){
 	
 	var url=req.query.iu
 	co(function*(){
-		var r = yield corequest(url)
-		r.setEncoding('binary')
-		for(var key in r.headers) {
-			resq.set(key,r.headers[key])
-		}
-		resq.end(new Buffer(r.body,'binary'),'binary')
+		var r = yield corequest(burl(url))
+		resq.set('Content-Type',r.headers['content-type'])
+		resq.end(r.body,'binary')
 	})
 
 })
