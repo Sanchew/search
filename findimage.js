@@ -9,19 +9,15 @@ var murl = require('./requestsupport')
 var filter = ["tumblr.com","whicdn.com"]
 router.get('/',function(req,resq){
 	
-	var bookname=req.query.k
+	var k=req.query.k
 	var page = req.query.p || 0
 	resq.set('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{padding:0;margin:0;}img{width:100%}</style>");
 	co(function*(){
-		// var url = `https://www.google.com/search?tbm=isch&q=${k}&oq=${k}`
-		var detailUrl = `https://www.google.com/ajax/pi/imgdisc?imgdii=uc9uNt3w_TH2OM`
-		var url = `http://www.google.com.hk/search?async=_id:rg_s,_pms:s&q=kingboo&asearch=ichunk&tbm=isch&ijn=${page}&gws_rd=cr`
+		var url = `http://www.google.com/search?async=_id:rg_s,_pms:s&q=${k}&asearch=ichunk&tbm=isch&ijn=${page}&gws_rd=cr`
 		var body = yield corequest(murl(url))
-		// console.info(body)
 		var dom = JSON.parse(body.body)[1][1]
 		var $=cheerio.load(dom,{decodeEntities:false})
-		// console.info(dom)
 		var jsons = $('.rg_meta')
 		for (var i=0;i<jsons.length;i++) {
 			console.info(jsons.eq(i).html())
@@ -32,17 +28,15 @@ router.get('/',function(req,resq){
 	})
 
 })
-			var filter = ["tumblr.com","whicdn.com"]
+
 router.get('/o',function(req,resq){
 	
-	var bookname=req.query.k
+	var k=req.query.k
 	var page = req.query.p || 0
 	resq.set('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{padding:0;margin:0;}img{width:100%}</style>");
 	co(function*(){
-		// var url = `https://www.google.com/search?tbm=isch&q=${k}&oq=${k}`
-		var detailUrl = `https://www.google.com/ajax/pi/imgdisc?imgdii=uc9uNt3w_TH2OM`
-		var url = `http://www.google.com.hk/search?async=_id:rg_s,_pms:s&q=kingboo&asearch=ichunk&tbm=isch&ijn=${page}&gws_rd=cr`
+		var url = `http://www.google.com/search?async=_id:rg_s,_pms:s&q=${k}&asearch=ichunk&tbm=isch&ijn=${page}&gws_rd=cr`
 		var body = yield corequest(murl(url))
 		var dom = JSON.parse(body.body)[1][1]
 		var $=cheerio.load(dom)//,{decodeEntities:false})
@@ -51,7 +45,6 @@ router.get('/o',function(req,resq){
 			var id = imgs.eq(i).attr("name")
 			var detail = yield corequest(murl(`https://www.google.com/ajax/pi/imgdisc?imgdii=${id}`))
 			var dbody=detail.body.substring(2,detail.body.length-2)
-			// console.info(dbody)
 			var json = JSON.parse(dbody)
 			var rels = json.rel
 			for (var di=0;di<rels.length;di++){
@@ -65,20 +58,17 @@ router.get('/o',function(req,resq){
 })
 router.get('/s',function(req,resq){
 	
-	var bookname=req.query.k
+	var k=req.query.k
 	var page = req.query.p || 0
 	resq.set('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{padding:0;margin:0;}img{width:100%}</style>");
 	co(function*(){
-		// var url = `https://www.google.com/search?tbm=isch&q=${k}&oq=${k}`
-		var detailUrl = `https://www.google.com/ajax/pi/imgdisc?imgdii=uc9uNt3w_TH2OM`
-		var url = `http://www.google.com.hk/search?async=_id:rg_s,_pms:s&q=kingboo&asearch=ichunk&tbm=isch&ijn=${page}&gws_rd=cr`
+		var url = `http://www.google.com/search?async=_id:rg_s,_pms:s&q=${k}&asearch=ichunk&tbm=isch&ijn=${page}&gws_rd=cr`
 		var body = yield corequest(murl(url))
 		var dom = JSON.parse(body.body)[1][1]
 		var $=cheerio.load(dom)//,{decodeEntities:false})
 		var imgs = $('img')
 		for (var i=0;i<imgs.length;i++) {
-
 			resq.write(`<img rel="noopener noreferrer" src=${imgs.eq(i).attr('src')}>`)
 		}
 		resq.end()

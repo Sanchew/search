@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta charset="utf-8">
-  <title>郭</title>
+  <title>clear</title>
   <style type="text/css">
   	header { text-align: center; }
   	.search,.searchContainer {
@@ -30,21 +30,29 @@
 	    font-family: arial,sans-serif;
 	    font-size: 13px;
 	    font-weight: bold;
-	    margin: 14px 217px;
+	    margin: 14px 0px 14px 111px;
 	    padding: 0 16px;
 	    text-align: center;
 	    width: 108px;
 	    height: 36px;
   	}
   </style>
+  <script type="text/javascript" src="/static/jquery-3.1.1.min.js"></script>
  </head>
  <body>
   <header>等待是一场与时光的较量</header>
   <div class="searchContainer">
-  	<form action="/fb">
-  		<input class="search" name="n">
-  		<button>搜索</button>
+  	<form id="mf">
+  		<input class="search" name="q">
+  		<button type="button" action="/g">Google</button><button type="button" action="/fb">首图</button>
   	</form>
   </div>
+  <script type="text/javascript">
+    $('button').click((event)=>{
+      var $this = $(event.target)
+      $('form').attr('action',$this.attr('action'))
+      $('form').submit()
+    })
+  </script>
  </body>
 </html>
