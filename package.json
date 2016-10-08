@@ -14,7 +14,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "node web"
+    "start": "node web.js"
   },
   "author": "",
   "license": "MIT",
