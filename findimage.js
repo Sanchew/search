@@ -9,7 +9,7 @@ var murl = require('./requestsupport')
 var filter = ["tumblr.com","whicdn.com"]
 router.get('/',function(req,resq){
 	
-	var k=req.query.k
+	var k=queryString.escape(req.query.k)
 	var page = req.query.p || 0
 	resq.set('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{padding:0;margin:0;}img{width:100%}</style>");
@@ -31,7 +31,7 @@ router.get('/',function(req,resq){
 
 router.get('/o',function(req,resq){
 	
-	var k=req.query.k
+	var k=queryString.escape(req.query.k)
 	var page = req.query.p || 0
 	resq.set('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{padding:0;margin:0;}img{width:100%}</style>");
@@ -58,7 +58,7 @@ router.get('/o',function(req,resq){
 })
 router.get('/s',function(req,resq){
 	
-	var k=req.query.k
+	var k=queryString.escape(req.query.k)
 	var page = req.query.p || 0
 	resq.set('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{padding:0;margin:0;}img{width:100%}</style>");
