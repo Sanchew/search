@@ -20,7 +20,7 @@ router.get('/',function(req,resq){
 		var $=cheerio.load(dom,{decodeEntities:false})
 		var jsons = $('.rg_meta')
 		for (var i=0;i<jsons.length;i++) {
-			console.info(jsons.eq(i).html())
+		//	console.info(jsons.eq(i).html())
 			var json = JSON.parse(jsons.eq(i).html())
 			resq.write(`<img src="${json.ou}">`)
 		}
