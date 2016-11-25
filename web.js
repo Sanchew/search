@@ -23,7 +23,7 @@ app.use('/static',express.static('public'))
 app.use('/fb',findbook)
 // app.use('/fi',findimage)
 // app.use('/fi/g',fetchimage)
-//app.use('/g',google)
+app.use('/g',google)
 app.get('/',function(req,res){
     // res.send('等待是一场与时光的较量')  
     res.render('index.html')
