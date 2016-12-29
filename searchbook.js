@@ -24,8 +24,8 @@ router.get('/',function(req,resq){
 		var rows=$('.search_result tr')
 		
 		resq.write(`<div>total ${rows.length}</div>`)
-		console.info('esarch detail')
 		for(var i=0;i<rows.length;i++) {
+			console.info('search detail:'+i)
 			var $e=rows.eq(i)
 			var row={}
 			row.title=$e.find(".title_list b").html()
