@@ -18,11 +18,13 @@ router.get('/',function(req,resq){
 	}
 	var baseServer = "http://123.127.171.216:8080"
 	co(function*(){
+		console.info('searchBook')
 		var body = yield corequest(baseServer+"/clcnopac/Search.action?"+queryString.stringify(data))
 		var $=cheerio.load(body.body,{decodeEntities:false})
 		var rows=$('.search_result tr')
 		
 		resq.write(`<div>total ${rows.length}</div>`)
+		console.info('esarch detail')
 		for(var i=0;i<rows.length;i++) {
 			var $e=rows.eq(i)
 			var row={}
