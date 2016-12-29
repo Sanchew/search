@@ -20,6 +20,7 @@ router.get('/',function(req,resq){
 	co(function*(){
 		console.info('searchBook')
 		var body = yield corequest(baseServer+"/clcnopac/Search.action?"+queryString.stringify(data))
+		console.info('one request done')
 		var $=cheerio.load(body.body,{decodeEntities:false})
 		var rows=$('.search_result tr')
 		
