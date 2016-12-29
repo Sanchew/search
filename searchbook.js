@@ -10,6 +10,7 @@ router.get('/',function(req,resq){
 	var bookname=req.query.q
 	resq.set('Content-Type','text/html;charset=utf8')
 	resq.write("<style>*{color:#999}a{color:#009;}</style>");
+	console.info('find book:'+bookname)
 	var data = {
 		book_name:bookname,
 		pageSize:999,
