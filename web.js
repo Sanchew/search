@@ -10,7 +10,11 @@ var google = require('./google')
 
 var app = express()
 app.use(compression({filter:function(req,res){
-    if(/\/fb\?q=/.test(req.originalUrl)) { return false }
+    if(/\/fb\?q=/.test(req.originalUrl)) { 
+	console.info('disable compression')
+	return false 
+    }
+    console.info('enable compression')
     return compression.filter(req,res)
 }}))
 app.set('views',__dirname + '/views')
