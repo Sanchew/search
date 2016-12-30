@@ -18,11 +18,9 @@ router.get('/',function(req,resq){
 	}
 	var baseServer = "http://123.127.171.216:8080"
 	co(function*(){
-		console.info('searchBook')
-		resq.end('fuck')
-		return
+		console.info('searchBook'+Date())
 		var body = yield corequest(baseServer+"/clcnopac/Search.action?"+queryString.stringify(data))
-		console.info('one request done')
+		console.info('one request done'+Date())
 		var $=cheerio.load(body.body,{decodeEntities:false})
 		var rows=$('.search_result tr')
 		
