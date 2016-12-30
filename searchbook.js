@@ -13,7 +13,8 @@ router.get('/',function(req,resq){
 	console.info('find book:'+bookname)
 	var data = {
 		book_name:bookname,
-		pageSize:999,
+		// pageSize:999,
+		pageSize:10,
 		keyword1:bookname
 	}
 	var baseServer = "http://123.127.171.216:8080"
