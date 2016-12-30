@@ -17,6 +17,7 @@ router.get('/',function(req,resq){
 	}
 	var baseServer = "http://123.127.171.216:8080"
 	co(function*(){
+		console.info("request:"+baseServer+"/clcnopac/Search.action?"+queryString.stringify(data))
 		var body = yield corequest(baseServer+"/clcnopac/Search.action?"+queryString.stringify(data))
 		var $=cheerio.load(body.body,{decodeEntities:false})
 		var rows=$('.search_result tr')
@@ -73,7 +74,7 @@ router.get('/',function(req,resq){
   			        
   			}
 			var apiurl = baseServer + "/clcnopac/api.action?marc_id="+id+"&cat="+cat+"&type=table&key="+keyvalue+"&rnum="+randomnum
-			// console.info(`${apiurl}`)
+			console.info(`${apiurl}`)
 			var subbody = yield corequest(apiurl)
 			var $$ = cheerio.load(subbody.body,{decodeEntities:false})
 			$$("tr").find("td").each((i,e) => {
@@ -90,6 +91,7 @@ router.get('/',function(req,resq){
 			resBody+=row.detail
 			resBody+="</div><hr>"
 			resq.write(resBody)
+			console.info("response body")
 		}
 		resq.end()
 	})
