@@ -26,6 +26,7 @@ router.get('/',function(req,resq){
 		
 		resq.write(`<div>total ${rows.length}</div>`)
 		for(var i=0;i<rows.length;i++) {
+			break
 			console.info('search detail:'+i)
 			var $e=rows.eq(i)
 			var row={}
