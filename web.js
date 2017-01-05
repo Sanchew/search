@@ -10,6 +10,8 @@ var google = require('./google')
 
 var app = express()
 app.use(compression({filter:function(req,res){
+    console.info('original:'+req.originalUrl)
+    console.info('result:'+/\/fb\?q=/.test(req.originalUrl))
     if(/\/fb\?q=/.test(req.originalUrl)) { 
 	console.info('disable compression')
 	return false 
