@@ -21,7 +21,7 @@ app.set('views',__dirname + '/views')
 app.engine('html',require('hogan-express'))
 app.set('view engine','html')
 app.use(favicon(__dirname + '/public/favicon.ico'))
-app.use('/',mapping)
+//app.use('/',mapping)
 app.get('/pac',function(req,res){
     res.setHeader('Content-Type', 'application/x-ns-proxy-autoconfig')
     res.sendFile(__dirname + '/public/iphone.pac')
