@@ -4,9 +4,9 @@ var router = express.Router()
 router.use('/', function(req,res,next){
     var referer = req.headers.referer
     if(req.url == '/' && referer){
-        var path = referer.match(/http:\/\/\w+.\w+(.*$)/)[1]
-        if (path.length > 1) {
-	    res.redirect(path)
+	var matchs = referer.match(/http:\/\/\w+.\w+(.*$)/)
+        if (matchs.length > 1 && matchs[1].length > 1) {
+	    res.redirect(matchs[1])
 	    return
         }
     }
