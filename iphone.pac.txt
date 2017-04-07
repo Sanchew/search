@@ -1,0 +1,13 @@
+var wall_proxy = "PROXY 192.168.2.192:8888; DIRECT;";
+var direct = "DIRECT;";
+
+/*
+ * Copyright (C) 2014 lijianwei.jj
+ * 
+ */
+
+function FindProxyForURL(url, host) {
+	
+	return wall_proxy;
+}
+
