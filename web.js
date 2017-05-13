@@ -40,7 +40,7 @@ app.get('/',function(req,res){
     // res.send('等待是一场与时光的较量')  
     res.render('index.html')
 })
-app.get('/guojianli',function(req,res){
+app.get('/lianghuangqing',function(req,res){
     res.redirect('/static/loveyou/mylove.html')
 })
 var server = app.listen(process.env.PORT || 3000,function(){
